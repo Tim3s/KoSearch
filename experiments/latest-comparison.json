@@ -1,0 +1,334 @@
+{
+  "title": "KoSearch 최신 검색 방식 비교",
+  "created_at": "2026-11-26",
+  "dataset": "mteb/AutoRAGRetrieval",
+  "split": "test",
+  "revision": "main",
+  "comparison_note": "experiments/e5와 experiments/bge-m3에서 BM25, Dense, Hybrid를 모두 사용한 최신 실험 결과를 모델별 실행 단위로 통합",
+  "experiments": [
+    {
+      "experiment_id": "54f0cd20-c913-4719-8100-b44b92b5d842",
+      "dataset": "mteb/AutoRAGRetrieval",
+      "split": "test",
+      "revision": "main",
+      "document_count": 720,
+      "query_count": 114,
+      "qrels_query_count": 114,
+      "model": "intfloat/multilingual-e5-base",
+      "device": "cuda",
+      "memory": {
+        "before_indexing": {
+          "process_rss_mb": 1228.03125,
+          "gpu_name": "NVIDIA GeForce RTX 3090",
+          "gpu_allocated_mb": 1060.7275390625,
+          "gpu_peak_allocated_mb": 1060.7275390625
+        },
+        "after_indexing": {
+          "process_rss_mb": 1694.9296875,
+          "gpu_name": "NVIDIA GeForce RTX 3090",
+          "gpu_allocated_mb": 1069.8525390625,
+          "gpu_peak_allocated_mb": 1654.4462890625
+        }
+      },
+      "results": [
+        {
+          "method": "bm25",
+          "alpha": null,
+          "metrics": {
+            "recall@1": 0.7192982456140351,
+            "mrr@1": 0.7192982456140351,
+            "ndcg@1": 0.7192982456140351,
+            "recall@5": 0.8859649122807017,
+            "mrr@5": 0.7875730994152047,
+            "ndcg@5": 0.8125160254475658,
+            "recall@10": 0.9385964912280702,
+            "mrr@10": 0.7943678641047062,
+            "ndcg@10": 0.8293054874775706
+          },
+          "latency_ms": {
+            "mean": 0.5865731002212834,
+            "median": 0.5436000064946711,
+            "p95": 1.2049000361002982
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08348600001772866,
+            "dense": null
+          },
+          "document_encoding_seconds": null
+        },
+        {
+          "method": "dense",
+          "alpha": null,
+          "metrics": {
+            "recall@1": 0.6403508771929824,
+            "mrr@1": 0.6403508771929824,
+            "ndcg@1": 0.6403508771929824,
+            "recall@5": 0.8947368421052632,
+            "mrr@5": 0.7419590643274854,
+            "ndcg@5": 0.7804470621035426,
+            "recall@10": 0.9473684210526315,
+            "mrr@10": 0.7490079365079365,
+            "ndcg@10": 0.797520699211939
+          },
+          "latency_ms": {
+            "mean": 8.902759355906811,
+            "median": 8.634500030893832,
+            "p95": 10.700999991968274
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08348600001772866,
+            "dense": 4.192563200020231
+          },
+          "document_encoding_seconds": 4.157616799988318
+        },
+        {
+          "method": "hybrid",
+          "alpha": 0.25,
+          "metrics": {
+            "recall@1": 0.7456140350877193,
+            "mrr@1": 0.7456140350877193,
+            "ndcg@1": 0.7456140350877193,
+            "recall@5": 0.9298245614035088,
+            "mrr@5": 0.8222222222222222,
+            "ndcg@5": 0.8495163390993559,
+            "recall@10": 0.9824561403508771,
+            "mrr@10": 0.8292258423837371,
+            "ndcg@10": 0.8665064489694895
+          },
+          "latency_ms": {
+            "mean": 9.916855847260136,
+            "median": 9.427100012544543,
+            "p95": 13.41289997799322
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08348600001772866,
+            "dense": 4.192563200020231
+          },
+          "document_encoding_seconds": 4.157616799988318
+        },
+        {
+          "method": "hybrid",
+          "alpha": 0.5,
+          "metrics": {
+            "recall@1": 0.7894736842105263,
+            "mrr@1": 0.7894736842105263,
+            "ndcg@1": 0.7894736842105263,
+            "recall@5": 0.9473684210526315,
+            "mrr@5": 0.8625730994152047,
+            "ndcg@5": 0.8845001451754422,
+            "recall@10": 0.9912280701754386,
+            "mrr@10": 0.8693957115009747,
+            "ndcg@10": 0.8996392569657586
+          },
+          "latency_ms": {
+            "mean": 10.237237718875372,
+            "median": 9.913599991705269,
+            "p95": 12.679100036621094
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08348600001772866,
+            "dense": 4.192563200020231
+          },
+          "document_encoding_seconds": 4.157616799988318
+        },
+        {
+          "method": "hybrid",
+          "alpha": 0.75,
+          "metrics": {
+            "recall@1": 0.7192982456140351,
+            "mrr@1": 0.7192982456140351,
+            "ndcg@1": 0.7192982456140351,
+            "recall@5": 0.9210526315789473,
+            "mrr@5": 0.8092105263157895,
+            "ndcg@5": 0.8378757498678505,
+            "recall@10": 0.9649122807017544,
+            "mrr@10": 0.8156154274575328,
+            "ndcg@10": 0.8526135659779093
+          },
+          "latency_ms": {
+            "mean": 9.818343859069234,
+            "median": 9.589200024493039,
+            "p95": 11.455400031991303
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08348600001772866,
+            "dense": 4.192563200020231
+          },
+          "document_encoding_seconds": 4.157616799988318
+        }
+      ]
+    },
+    {
+      "experiment_id": "76784e9f-e453-46f9-a1bc-c178c2efdbf5",
+      "dataset": "mteb/AutoRAGRetrieval",
+      "split": "test",
+      "revision": "main",
+      "document_count": 720,
+      "query_count": 114,
+      "qrels_query_count": 114,
+      "model": "BAAI/bge-m3",
+      "device": "cuda",
+      "memory": {
+        "before_indexing": {
+          "process_rss_mb": 1226.09375,
+          "gpu_name": "NVIDIA GeForce RTX 3090",
+          "gpu_allocated_mb": 2165.9384765625,
+          "gpu_peak_allocated_mb": 2165.9384765625
+        },
+        "after_indexing": {
+          "process_rss_mb": 1680.05859375,
+          "gpu_name": "NVIDIA GeForce RTX 3090",
+          "gpu_allocated_mb": 2175.0634765625,
+          "gpu_peak_allocated_mb": 3957.22412109375
+        }
+      },
+      "results": [
+        {
+          "method": "bm25",
+          "alpha": null,
+          "metrics": {
+            "recall@1": 0.7192982456140351,
+            "mrr@1": 0.7192982456140351,
+            "ndcg@1": 0.7192982456140351,
+            "recall@5": 0.8859649122807017,
+            "mrr@5": 0.7875730994152047,
+            "ndcg@5": 0.8125160254475658,
+            "recall@10": 0.9385964912280702,
+            "mrr@10": 0.7943678641047062,
+            "ndcg@10": 0.8293054874775706
+          },
+          "latency_ms": {
+            "mean": 0.5748555568327354,
+            "median": 0.5319999763742089,
+            "p95": 1.2360000400803983
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08302780002122745,
+            "dense": null
+          },
+          "document_encoding_seconds": null
+        },
+        {
+          "method": "dense",
+          "alpha": null,
+          "metrics": {
+            "recall@1": 0.6754385964912281,
+            "mrr@1": 0.6754385964912281,
+            "ndcg@1": 0.6754385964912281,
+            "recall@5": 0.9298245614035088,
+            "mrr@5": 0.7780701754385965,
+            "ndcg@5": 0.8163665632703353,
+            "recall@10": 0.9736842105263158,
+            "mrr@10": 0.7834551656920078,
+            "ndcg@10": 0.830075307845244
+          },
+          "latency_ms": {
+            "mean": 16.38016666691445,
+            "median": 15.665900020394474,
+            "p95": 19.770000013522804
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08302780002122745,
+            "dense": 16.502620199986268
+          },
+          "document_encoding_seconds": 16.469986099982634
+        },
+        {
+          "method": "hybrid",
+          "alpha": 0.25,
+          "metrics": {
+            "recall@1": 0.7543859649122807,
+            "mrr@1": 0.7543859649122807,
+            "ndcg@1": 0.7543859649122807,
+            "recall@5": 0.9385964912280702,
+            "mrr@5": 0.8277777777777777,
+            "ndcg@5": 0.8556998800773171,
+            "recall@10": 0.9824561403508771,
+            "mrr@10": 0.8343915343915345,
+            "ndcg@10": 0.8706383440275046
+          },
+          "latency_ms": {
+            "mean": 17.143597660418763,
+            "median": 16.44420000957325,
+            "p95": 20.877700007986277
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08302780002122745,
+            "dense": 16.502620199986268
+          },
+          "document_encoding_seconds": 16.469986099982634
+        },
+        {
+          "method": "hybrid",
+          "alpha": 0.5,
+          "metrics": {
+            "recall@1": 0.8245614035087719,
+            "mrr@1": 0.8245614035087719,
+            "ndcg@1": 0.8245614035087719,
+            "recall@5": 0.9824561403508771,
+            "mrr@5": 0.8865497076023392,
+            "ndcg@5": 0.9106440922171841,
+            "recall@10": 1.0,
+            "mrr@10": 0.8885233918128655,
+            "ndcg@10": 0.9159469843496719
+          },
+          "latency_ms": {
+            "mean": 17.728512572963336,
+            "median": 17.270600015763193,
+            "p95": 21.193300024606287
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08302780002122745,
+            "dense": 16.502620199986268
+          },
+          "document_encoding_seconds": 16.469986099982634
+        },
+        {
+          "method": "hybrid",
+          "alpha": 0.75,
+          "metrics": {
+            "recall@1": 0.7894736842105263,
+            "mrr@1": 0.7894736842105263,
+            "ndcg@1": 0.7894736842105263,
+            "recall@5": 0.9473684210526315,
+            "mrr@5": 0.8548245614035088,
+            "ndcg@5": 0.8783054991317765,
+            "recall@10": 0.9912280701754386,
+            "mrr@10": 0.8611319966583124,
+            "ndcg@10": 0.8929383576159922
+          },
+          "latency_ms": {
+            "mean": 17.27416812937859,
+            "median": 16.46479999180883,
+            "p95": 21.384700026828796
+          },
+          "query_count": 114,
+          "latency_measurement_count": 342,
+          "indexing_seconds": {
+            "bm25": 0.08302780002122745,
+            "dense": 16.502620199986268
+          },
+          "document_encoding_seconds": 16.469986099982634
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+.env
+data/raw/*
+data/processed/*
+data/hf_cache/
+data/indexes/
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.faiss
+models/

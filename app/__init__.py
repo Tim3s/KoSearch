@@ -1,0 +1,1 @@
+"""KoSearch Lab application package."""
